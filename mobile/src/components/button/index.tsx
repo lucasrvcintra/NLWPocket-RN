@@ -5,7 +5,7 @@ import {
   TextProps,
   ActivityIndicator,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { IconProps as TablerIconProps } from '@tabler/icons-react-native';
 
 import { s } from './styles';
 import { colors } from '@/styles/theme';
@@ -36,11 +36,11 @@ function Title({ children }: TextProps) {
 }
 
 type IconProps = {
-  name: keyof typeof Feather.glyphMap;
+  icon: React.ComponentType<TablerIconProps>;
 };
 
-function Icon({ name }: IconProps) {
-  return <Feather name={name} size={24} color={colors.gray[100]} />;
+function Icon({ icon: Icon }: IconProps) {
+  return <Icon size={24} color={colors.gray[100]} />;
 }
 
 Button.Title = Title;

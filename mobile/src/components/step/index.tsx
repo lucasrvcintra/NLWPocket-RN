@@ -1,19 +1,20 @@
 import { Text, View } from 'react-native';
+import { IconProps } from '@tabler/icons-react-native';
 
 import { colors } from '@/styles/theme';
 import { s } from './styles';
-import { Feather } from '@expo/vector-icons';
 
 type Props = {
   title: string;
   description: string;
-  name: keyof typeof Feather.glyphMap;
+  icon: React.ComponentType<IconProps>;
 };
 
-export function Step({ title, description, name }: Props) {
+export function Step({ title, description, icon: Icon }: Props) {
   return (
     <View style={s.container}>
-      {Feather && <Feather name={name} size={32} color={colors.red.base} />};
+      {Icon && <Icon size={32} color={colors.red.base} />}
+
       <View style={s.details}>
         <Text style={s.title}>{title}</Text>
         <Text style={s.description}>{description}</Text>
